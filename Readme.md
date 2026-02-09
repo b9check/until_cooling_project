@@ -17,12 +17,17 @@ Feedforward + PI: feedforward computes heater power from flow rate (P = ṁ·Cp�
 
 ## Files
 
+**Simulation (Task 1):**
 - main.m - Full 30-min simulation
 - run_simulation.m - Physics + control loop
 - heater_dynamics.m - NTU-effectiveness thermal model
 - Pure_PI.m - PI without transport delay (baseline)
 - Pure_PI_Lag.m - PI with delay, no feedforward (fails)
 - plot_dynamics.m - Heater response visualization
+
+**CAD:**
+- CAD/Cooling Mechanism/ - Task 1: Mobile perfusion system
+- CAD/Cradle/ - Task 2: Organ cradle
 
 ## Author
 

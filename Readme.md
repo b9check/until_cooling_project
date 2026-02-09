@@ -26,7 +26,7 @@ Feedforward + PI: feedforward computes heater power from flow rate (P = ṁ·Cp�
 - plot_dynamics.m - Heater response visualization
 
 **CAD:**
-- CAD/Cooling Mechanism/ - Task 1: Mobile perfusion system
+- CAD/Cooling Machine/ - Task 1: Mobile perfusion system
 - CAD/Cradle/ - Task 2: Organ cradle
 
 ## Author

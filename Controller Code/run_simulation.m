@@ -65,11 +65,10 @@ function results = run_simulation(cfg)
         end
         results.T_in(i) = T_in;
         
-        % --- Pressure control -> flow ---
-        Q_ff = cfg.P_setpoint / R;
         
+        % --- Pressure control -> flow (PI feedback only) ---
         if i > 1
-            P_true = results.Q_total(i-1) * R;
+            P_true = results.Q_total(i-1) * R;  
         else
             P_true = cfg.P_setpoint;
         end
@@ -82,9 +81,8 @@ function results = run_simulation(cfg)
         
         P_error = cfg.P_setpoint - P_sensor;
         P_integral = P_integral + P_error * dt;
-        Q_fb = cfg.Kp_P * P_error + cfg.Ki_P * P_integral;
-        
-        Q_total = Q_ff + Q_fb;
+        Q_nominal = cfg.P_setpoint / cfg.R_initial;
+        Q_total = Q_nominal + cfg.Kp_P * P_error + cfg.Ki_P * P_integral;
         
         % Clamp with anti-windup
         if Q_total > cfg.Q_max

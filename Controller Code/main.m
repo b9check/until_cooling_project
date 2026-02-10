@@ -12,8 +12,8 @@ cfg.t_ramp = 1000;              % [s]
 cfg.cpa_final = 0.7;            % 70% CPA
 
 % --- Vascular resistance ---
-cfg.R_initial = 10;             % [mmHg/(mL/min)]
-cfg.R_final = 1;
+cfg.R_initial = 9;             % [mmHg/(mL/min)]
+cfg.R_final = 2;
 
 % --- Setpoints & tolerances ---
 cfg.T_setpoint = 4.0;           % [C]
@@ -54,7 +54,7 @@ cfg.use_feedforward = true;
 
 % --- Pressure controller ---
 cfg.Kp_P = 0.05;                % [mL/min/mmHg]
-cfg.Ki_P = 0.005;
+cfg.Ki_P = 0.1;
 
 % --- Sensors ---
 cfg.T_bias = 0.1;               % [C]
@@ -101,6 +101,7 @@ fprintf('  Mean error: %.2f mmHg\n\n', results.P_error_mean);
 
 fprintf('Heater: %.1f W max (%.0f%% utilization)\n\n', ...
         results.P_heater_max, 100*results.P_heater_max/cfg.P_heater_max);
+fprintf('Heater mean: %.2f W\n\n', results.P_heater_mean);
 
 % --- Plot ---
 t = results.t;

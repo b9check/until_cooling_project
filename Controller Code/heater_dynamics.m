@@ -27,9 +27,9 @@ function [T_out, dT_wall_dt, Q_to_fluid, eps] = heater_dynamics(T_in, T_wall, Q_
     % Heat transfer
     h = Nu * fluid.k / D;
     NTU = (h * pi * D * L) / (m_dot * fluid.Cp);
-    eps = 1 - exp(-NTU);
     
     Q_to_fluid = m_dot * fluid.Cp * eps * (T_wall - T_in);
     T_out = T_in + eps * (T_wall - T_in);
     dT_wall_dt = (P_heater - Q_to_fluid) / C_wall;
+    disp(eps)
 end
